@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="form-container">
+    <h2>Update Announcement</h2>
+    <form action="{% url 'Announcement_update' post.pk %}" method="POST" class="form-style">
+        {% csrf_token %}
+        <div class="form-fields">
+            {{ form.as_p }}
+        </div>
+        <div class="form-buttons">
+            <input type="submit" value="Update Announcement" class="submit-btn">
+            <a href="{% url 'Announcement_detail' post.pk %}" class="cancel-btn">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

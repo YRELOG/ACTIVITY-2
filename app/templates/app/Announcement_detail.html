@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="announcement-detail-container">
+    <h2>{{ post.type }}</h2>
+    <div class="announcement-detail-content">
+        <p><strong>Location:</strong> {{ post.location }}</p>
+        <p><strong>Status:</strong> {{ post.status }}</p>
+        <p><strong>Details:</strong> {{ post.details }}</p>
+    </div>
+    <div class="announcement-action-buttons">
+        <a href="{% url 'Announcement_update' post.pk %}" class="edit-btn">Edit</a>
+        <a href="{% url 'Announcement_delete' post.pk %}" class="delete-btn">Delete</a>
+        <a href="{% url 'Announcement' %}" class="back-btn">Back to List</a>
+    </div>
+</div>
+{% endblock content %}

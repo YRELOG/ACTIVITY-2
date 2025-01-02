@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay Hub</title>
+
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-logo">
+            <h1>Barangay Hub</h1>
+        </div>
+        <nav class="navbar-links">
+            <a href="{% url 'home' %}" class="navbar-link">Home</a>
+            <a href="{% url 'Announcement' %}" class="navbar-link">Announcements</a>
+            <a href="{% url 'about' %}" class="navbar-link">About</a>
+            <a href="{% url 'contact' %}" class="navbar-link">Contact</a>
+        </nav>
+    </header>
+
+    <div class="main-layout">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="{% url 'home' %}" class="sidebar-item">Dashboard</a></li>
+                <li><a href="{% url 'Announcement' %}" class="sidebar-item">Manage Announcements</a></li>
+                <li><a href="{% url 'about' %}" class="sidebar-item">About Us</a></li>
+                <li><a href="{% url 'contact' %}" class="sidebar-item">Contact Support</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            {% block content %}
+            {% endblock content %}
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Barangay Hub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

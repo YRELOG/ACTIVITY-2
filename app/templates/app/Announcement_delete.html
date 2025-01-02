@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="deletion-confirmation-content">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete "{{ post.type }}"?</p>
+    <form action="{% url 'Announcement_delete' post.pk %}" class="confirmation-form"  method="Post">
+      {% csrf_token %}
+      <input type="submit" value="Confirm">
+    </form>
+    <a href="{% url 'Announcement' %}" class="cancel-link">Cancel</a>
+  </div>
+{% endblock content %}
