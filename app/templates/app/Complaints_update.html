@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="form-container">
+    <h2>Update Complaint</h2>
+    <form action="{% url 'Complaints_update' complaint.pk %}" method="POST" class="form-style">
+        {% csrf_token %}
+        <div class="form-fields">
+            {{ form.as_p }}
+        </div>
+        <div class="form-buttons">
+            <input type="submit" value="Update Complaint" class="submit-btn">
+            <a href="{% url 'Complaints_detail' complaint.pk %}" class="cancel-btn">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

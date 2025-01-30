@@ -1,0 +1,42 @@
+{% extends 'app/base.html'%}
+{% load static %}
+{% block content %}
+    <h1 class="text-center mx-1">Residents of {{ household.name }}</h1>
+    <div class="w-100 d-flex justify-content-center ">
+        <table class="table table-striped w-50 table-bordered border-2">
+          <thead>
+            <tr>
+              <th scope="col">Residence</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Age</th>
+                <th scope="col">Gender</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            {% for resident in residents %}
+            <tr>
+              <td class="py-3">{{resident.household}}</td>
+              <td>{{resident.first_name}}</td>
+              <td>{{resident.last_name}}</td>
+                <td>{{resident.age}}</td>
+                <td>{{resident.gender}}</td>
+              <td>
+                <a href="{% url 'resident_update' household.pk resident.pk %}" class="btn btn-primary">Update</a>
+                <a href="{% url 'resident_delete' household.pk resident.pk %}" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+            <tfooter class="h-10">
+            <tr>
+              <td colspan="6">
+                  <a href="{% url 'resident-create' household.pk %}" class="btn btn-success w-100 h-100 py-3">Add Resident</a>
+              </td>
+            </tr>
+            </tfooter>
+          </tbody>
+        </table>
+    </div>
+
+{% endblock content %}

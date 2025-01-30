@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="deletion-confirmation-content">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete "{{ complaint.resident }}'s Complaint"?</p>
+    <form action="{% url 'Complaints_delete' complaint.pk %}" class="confirmation-form"  method="Post">
+      {% csrf_token %}
+      <input type="submit" value="Confirm" class="btn btn-danger">
+          <a href="{% url 'Complaints' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+  </div>
+{% endblock content %}

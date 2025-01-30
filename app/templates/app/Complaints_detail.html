@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="announcement-detail-container">
+    <h2>{{ complaint.resident }}</h2>
+    <div class="announcement-detail-content">
+        <p><strong>Location:</strong> {{ complaint.description }}</p>
+        <p><strong>Status:</strong> {{ complaint.status }}</p>
+    </div>
+    <div class="announcement-action-buttons">
+        <a href="{% url 'Complaints_update' complaint.pk %}" class="edit-btn">Edit</a>
+        <a href="{% url 'Complaints_delete' complaint.pk %}" class="delete-btn">Delete</a>
+        <a href="{% url 'Complaints' %}" class="back-btn">Back to List</a>
+    </div>
+</div>
+{% endblock content %}

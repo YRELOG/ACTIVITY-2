@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="announcement-list-container">
+    <div class="header-row">
+        <h2>Complaints</h2>
+        <a href="{% url 'Complaints_create' %}" class="add-announcement-btn">+ Add New Complaint</a>
+    </div>
+    <div class="announcement-list">
+        {% for complaint in complaints %}
+            <div class="announcement-item">
+                <h3><a href="{% url 'Complaints_detail' complaint.pk %}" class="announcement-title">{{ complaint.resident }}</a></h3>
+                <p>{{ complaint.description }}</p>
+                <a href="{% url 'Complaints_detail' complaint.pk %}" class="view-details-link">View Details</a>
+            </div>
+        {% empty %}
+            <p>No announcements available.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

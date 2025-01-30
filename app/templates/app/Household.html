@@ -1,0 +1,17 @@
+{% extends 'app/base.html'%}
+{% load static %}
+{% block content %}
+<h1 class="text-center">Households</h1>
+<div class="d-flex p-3 gap-3 justify-content-center">
+ {% for household in households %}
+ <div class="card" style="width: 18rem;">
+   <img src="{% static 'images/house-example.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{household.name}}</h5>
+      <p class="card-text">{{household.address}}</p>
+      <a href="{% url 'household-residents' household.pk %}" class="btn btn-primary">View Residents</a>
+    </div>
+  </div>
+ {% endfor %}
+</div>
+{% endblock content %}

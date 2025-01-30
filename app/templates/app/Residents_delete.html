@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="deletion-confirmation-content d-flex flex-column w-100 align-items-center">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete "{{ resident.first_name }} {{ resident.last_name }}"?</p>
+  <form action="{% url 'resident_delete' household.pk resident.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Confirm" class="btn btn-danger">
+    <a href="{% url 'household-residents' household.pk %}" class="btn btn-secondary">Cancel</a>
+  </form>
+
+
+  </div>
+{% endblock content %}

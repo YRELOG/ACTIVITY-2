@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="form-container">
+    <h2>Create a New Complaint</h2>
+    <form action="{% url 'Complaints_create' %}" method="POST" class="form-style">
+        {% csrf_token %}
+        <div class="form-fields">
+            {{ form.as_p }}
+        </div>
+        <div class="form-buttons">
+            <input type="submit" value="Create Announcement" class="submit-btn">
+            <a href="{% url 'Complaints' %}" class="cancel-btn">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}
